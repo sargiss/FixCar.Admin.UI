@@ -1,0 +1,97 @@
+﻿<div class="fluid-container">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-1">
+                Название
+            </div>
+            <div class="col-md-2">
+                <input type="text" ng-model="card.name" />
+            </div>
+        </div>
+        <div class="row">
+            адрес
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <div>
+                        город
+                    </div>
+                    <div>
+                        <select ng-model="card.city"></select>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        улица
+                    </div>
+                    <div>
+                        <input type="text" ng-model="card.street" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        дом, корпус
+                    </div>
+                    <div>
+                        <input type="text" ng-model="card.building" />
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-md-4">
+            <div style="width: 300px; height: 300px;" ya-map="locationViewer">
+            </div>
+        </div>-->
+        </div>
+        <div>
+            контакты
+        </div>
+        <div>
+            <div>
+                <div>
+                    телефон
+                </div>
+                <div>
+                    <input type="text" ng-model="card.phone" />
+                </div>
+            </div>
+            <div>
+                <div>
+                    e-mail
+                </div>
+                <div>
+                    <input type="text" ng-route="card.email" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <div>Расписание</div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>день</td>
+                        <td>время с</td>
+                        <td>время по</td>
+                        <td>есть индивидуальное</td>
+                    </tr>
+                </thead>
+                <tr ng-repeat="item in schedule">
+                    <td>{{item.Day}}</td>
+                    <td ng-hide="item.IsSpecial">{{item.Start}}</td>
+                    <td ng-hide="item.IsSpecial">{{item.End}}</td>
+                    <td ng-show="item.IsSpecial" colspan="2">{{item.Special}}</td>
+                    <td>{{item.IsCustom}}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <div>Услуги</div>
+            <div ng-repeat="svcGroup in serviceGroups">
+                <div>{{svcGroup.Title}}</div>
+                <span ng-repeat="svc in svcGroup.Services">{{svc.Title}}</span>
+            </div>
+        </div>
+    </div>
+</div>

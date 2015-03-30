@@ -41,3 +41,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+bin/FixCar.Admin.UI.pdb
+bin/
+obj/

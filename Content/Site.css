@@ -1,0 +1,19 @@
+﻿body {
+}
+
+li.order-item {
+    background-color: rgba(168, 138, 138, 0.39);
+}
+
+li.order-item .order-buttons{
+    visibility:hidden;
+}
+
+li:hover.order-item .order-buttons{
+    visibility: visible;
+}
+
+.order-buttons span:hover{
+    background-color: rgb(92, 184, 92);
+    opacity: 0.8;
+}

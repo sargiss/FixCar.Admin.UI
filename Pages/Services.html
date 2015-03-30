@@ -1,0 +1,49 @@
+﻿<div>
+    <div>
+        <input type="text" ng-model="svc.filter" />
+        <table>
+            <tr>
+                <td></td>
+                <td>Наименование</td>
+            </tr>
+            <tr ng-repeat="s in svc.serviceGroups | filter: svcGroupListFilter">
+                <td>
+                    <input type="checkbox" ng-model="s.checked" />
+                </td>
+                <td>{{s.Name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div>
+            <table>
+                <tr>
+                    <td>Вид услуги
+                    </td>
+                    <td>Количество машиномест
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{g.Name}}
+                    </td>
+                    <td>
+                        <input type="text" ng-model="g.PlaceCount" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <ul>
+                <li ng-foreach="g in svc.serviceGroups">
+                    <div>
+                        {{g.Name}}
+                    </div>
+                    <ul>
+                        <li ng-foreach="s in g.Services"><span>{{s.Name}}</span><span>{{s.MinPrice}}</span><span></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

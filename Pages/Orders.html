@@ -1,0 +1,80 @@
+﻿<div>
+    <div style="float: left; width: 20%;">
+        <ul class="nav nav-pills nav-stacked" style="background-color: black; color: lightgray;">
+            <li ng-repeat="item in subMenuItems">
+                <a href="{{item.url}}">{{item.title}}<span class="badge">{{item.count}}</span></a>
+            </li>
+        </ul>
+    </div>
+    <div style="float: left; width: 80%;">
+        <div ng-controller="filterTopCtrl">
+            <div class="btn-group" ng-click="switchDate()">
+                <label class="btn btn-success" ng-model="filterOrder.radioDate" btn-radio="'All'" uncheckable>все</label>
+                <label class="btn btn-success" ng-model="filterOrder.radioDate" btn-radio="'Today'" uncheckable>сегодня</label>
+                <label class="btn btn-success" ng-model="filterOrder.radioDate" btn-radio="'Tomorrow'" uncheckable>завтра</label>
+                <input class="form-control btn" style="width: 9em; border-radius: inherit;"
+                    datepicker-popup="dd.MM.yyyy" ng-model="filterOrder.dateToShow" is-open="opened" ng-required="true" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openCalendar($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+
+            </div>
+            <div style="margin-top: 1em;"></div>
+            <multi-select
+                input-model="services"
+                output-model="filterOrder.services"
+                button-label="name"
+                item-label="name"
+                tick-property="selected">
+            </multi-select>
+        </div>
+        <div class="col-md-11">
+            <ul class="list-group">
+                <li class="list-group-item order-item" ng-repeat="order in orders | filter: {status: filterOrder.status } |
+                datesInDay: 'reservationDateTime': filterOrder.dateToShow | 
+                inSvc: filterOrder.services">
+                    <table>
+                        <tr>
+                            <td style="width: 100%">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h3 class="btn badge">{{order.reservationDateTime | date: "dd.MM.yyyy" }}
+                            <span>{{order.reservationDateTime | date: "HH.mm" }}
+                            </span>
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h1 style="margin: 0;">{{order.serviceName}}</h1>
+                                            <p>клиент:<span>{{order.customer.name}}</span></p>
+                                            <p>
+                                                автомобиль:
+                                <span>{{order.car.model}},
+                                    {{order.car.class}},
+                                    {{order.car.year}}
+                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <span>дата бронирования:</span>
+                                        {{order.createDateTime}} 
+                        <span>из системы</span>
+                                        цена: <span class="badge">{{order.price}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="btn-group-vertical order-buttons" role="group">
+                                    <span style="padding: 5px 5px" class="glyphicon glyphicon-th-large" tooltip="подробнее" aria-hidden="true"></span>
+                                    <span style="padding: 5px 5px" class="glyphicon glyphicon-remove" tooltip="отменить" aria-hidden="true"></span>
+                                    <span style="padding: 5px 5px" class="glyphicon glyphicon-envelope" tooltip="отправить сообщение" aria-hidden="true"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

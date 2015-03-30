@@ -1,0 +1,51 @@
+﻿<div>
+    <div style="float: left; width: 20%;">
+        
+            <ul class="nav nav-pills nav-stacked" style="background-color: black; color: lightgray;">
+                <li ng-repeat="item in subMenuItems">
+                    <a href="{{item.url}}">{{item.title}}<span class="badge">{{item.count}}</span></a>
+                </li>
+            </ul>
+        
+    </div>
+    <div style="float: left; width: 80%;">
+        <div class="col-md-11">
+
+            <ul class="list-group">
+                <li class="list-group-item message-item" ng-repeat="msg in messages">
+                    <table>
+                        <tr>
+                            <td style="width: 100%">
+                                <div class="container-fluid">
+                                    <div class="row" ng-show="msg.title">
+                                        {{msg.title}}
+                                    </div>
+                                    <div class="row">
+                                        {{msg.body}}
+                                    </div>
+                                    <div class="row">
+                                        {{msg.createDateTime}} 
+                                        <span ng-hide="msg.orderNumber">заказ: 
+                                            <span class="badge">{{msg.orderNumber}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="btn-group-vertical order-buttons" role="group">
+                                    <span style="padding: 5px 5px" class="glyphicon glyphicon-th-large" tooltip="подробнее" 
+                                        aria-hidden="true" ng-click="detail(msg)"></span>
+                                    <span style="padding: 5px 5px" class="glyphicon glyphicon-remove" tooltip="удалить" 
+                                        aria-hidden="true" ng-click="delete(msg)"></span>
+                                    <span style="padding: 5px 5px" class="glyphicon glyphicon-envelope" tooltip="ответить" 
+                                        aria-hidden="true" ng-click="reply(msg)"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
