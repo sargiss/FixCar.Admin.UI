@@ -1,5 +1,7 @@
 ﻿var adminApp = angular.module("adminApp", ["ngRoute", 'ui.bootstrap', 'multi-select',
-    "adminApp.controller", "adminApp.filters", "commonDirectives"])
+    "adminApp.controllers", "adminApp.filters", "adminApp.services", "commonDirectives",
+    "orders.controllers", "stationSetting.controllers", "stationSettings.filters",
+    "messages.controllers"])
     .config(['$routeProvider',
         function ($routeProvider) {
             $routeProvider
@@ -25,6 +27,11 @@
                 .when('/information', {
                     templateUrl: "/Pages/Information.html",
                     controller: 'infoCardCtrl'
+                })
+                .when('/information/services', {
+                    templateUrl: "/Pages/Services.html",
+                    controller: "serviceListEditCtrl",
+                    controllerAs: "svc"
                 })
                 .otherwise({
                     redirectTo: '/orders'

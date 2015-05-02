@@ -15,7 +15,7 @@ function infoCardEditCtrl(infoCardSvc)
     }
 
     this.save = function () {
-        infoCardSvc.save(self.item);
+        infoCardSvc.saveCard(self.item);
     };
 
     this.updateLocation = function () {
@@ -33,7 +33,7 @@ function serviceListEditCtrl(stationService){
     self.serviceGroups = [];
 
     this.saveServicePlaces = function () {
-        stationService.saveServicesPlaces(self.serviceGroups);
+        stationService.saveServicePlaces(self.serviceGroups);
     };
 
     stationService.getAllServices().then(function (data) {
@@ -65,8 +65,8 @@ function scheduleEditCtrl(stationService){
     });
 }
 
-info = angular.module("adminApp.stationSetting", [])
+angular.module("stationSetting.controllers", [])
     .controller("infoCardCtrl", infoCardCtrl)
     .controller("infoCardEditCtrl", infoCardEditCtrl)
-    .controller("serviceEditCtrl", serviceEditCtrl)
+    .controller("serviceListEditCtrl", serviceListEditCtrl)
     .controller("scheduleEditCtrl", scheduleEditCtrl);

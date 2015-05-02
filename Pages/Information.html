@@ -1,5 +1,6 @@
 ﻿<div class="fluid-container">
     <div class="col-md-6">
+        <div>Контактная информация<span><a href="#/information/card">Редактировать</a></span></div>
         <div class="row">
             <div class="col-md-1">
                 Название
@@ -67,7 +68,7 @@
     </div>
     <div class="col-md-6">
         <div>
-            <div>Расписание</div>
+            <div>Расписание <span><a href="#/information/schedule">Редактировать</a></span></div>
             <table>
                 <thead>
                     <tr>
@@ -87,7 +88,7 @@
             </table>
         </div>
         <div>
-            <div>Услуги</div>
+            <div>Услуги <span><a href="#/information/services">Редактировать</a></span></div>
             <div ng-repeat="svcGroup in serviceGroups">
                 <div>{{svcGroup.Title}}</div>
                 <span ng-repeat="svc in svcGroup.Services">{{svc.Title}}</span>

@@ -1,4 +1,4 @@
-﻿angular.module("appConfig", [])
+﻿angular.module("adminApp.config", [])
     .value("rootPath", "")
     .factory("urlService", function (rootPath) {
         var urls = {
@@ -6,8 +6,7 @@
             Orders: "",
             RejectOrder: "",
             Approve: "",
-            Change: "",
-
+            Change: ""
         };
 
         var res = {};
